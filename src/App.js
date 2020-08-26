@@ -9,11 +9,10 @@ class App extends Component {
   }
 
   fetchData = () => {
-    axios.get('https://api.onepeloton.com/api/user/sjarquedeakin', {
-      headers: {"accept": "*/*"}}
+    axios.get('https://cors-anywhere.herokuapp.com/https://api.onepeloton.com/api/user/sjarquedeakin'
     )
     .then(function(response) {
-      console.log('YOU DID IT GIRL');
+      console.log(response);
     })
     .catch(function(error) {
       console.log('Error on Authentication');
@@ -27,7 +26,7 @@ class App extends Component {
  return (
   <div className="App">
       <div className="logo">
-        <img src={pelotonlogo} height= "50%" width="50%" alt="logo" />
+        <img src={pelotonlogo} height= "50%" width="50%" alt="lonpm go" />
       </div>
     <h1>Sarah's Peloton API</h1>
 
