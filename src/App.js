@@ -4,38 +4,84 @@ import './styles.css';
 import pelotonlogo from './images/peloton-logo.png';
 
 class App extends Component {
-  state = {
-    data: null
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '', 
+      tags: {},
+      location: '',
+      workouts: '',
+      imageURL: {},
+      value: '',
+      error: false
+    };
+    this.fetchData = this.fetchData.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  fetchData = () => {
-    axios.get('https://cors-anywhere.herokuapp.com/https://api.onepeloton.com/api/user/sjarquedeakin'
+  handleChange(event) {
+    console.log(event.target.value)
+    this.setState({
+      value: event.target.value
+    }) 
+  }
+
+  fetchData(event) {
+    event.preventDefault()
+    let myUsername = this.state.value;
+    
+    axios.get(`https://cors-anywhere.herokuapp.com/https://api.onepeloton.com/api/user/${myUsername}`
     )
-    .then(function(response) {
+    .then (response => {
       console.log(response);
+      this.setState({
+        username: response.data.username,
+        tags: response.data.tags_info,
+        location: response.data.location,
+        workouts: response.data.total_non_pedaling_metric_workouts,
+        imageURL: response.data.image_url,
+        error: false
+      });
     })
-    .catch(function(error) {
-      console.log('Error on Authentication');
+    .catch (error => {
+      this.setState({
+        error: true
+      })
     });
   }
 
   render(){
+
+    const { imageURL } = this.state;
   
- 
 
  return (
   <div className="App">
-      <div className="logo">
-        <img src={pelotonlogo} height= "50%" width="50%" alt="lonpm go" />
+    <div className="logo">
+      <img src={pelotonlogo} height= "50%" width="50%" alt="lonpm go" />
+    </div>
+    <form onSubmit={this.fetchData}>
+      <label htmlFor="username">
+        Username 
+      </label>
+      <input id="username" value={this.state.value} type="text" onChange={this.handleChange}/>
+      <button type="submit" className="fetch-button"> Submit </button>
+    </form>
+    {this.state.username 
+    ?  <div>
+        <img src={imageURL} height="25%" width="25%" alt="your face"/>
+        <h1>{this.state.username}'s Peloton info</h1>
+        <p>Username: {this.state.username}</p> 
+        <p>Location: {this.state.location}</p> 
+        <p>Total workouts: {this.state.workouts}</p>
+        {this.state.tags && 
+        <p>Pelothon Team: {this.state.tags['primary_name']}</p>
+         }
       </div>
-    <h1>Sarah's Peloton API</h1>
+    : <p>No account found</p>} 
+    {this.state.error && <p>There has been an error</p>}
 
-    <div>
-        <button className="fetch-button" onClick={this.fetchData}>
-          Fetch Last Type Of Workout
-        </button>
-        <br />
-      </div>
+   
   </div>
  );
 }}
