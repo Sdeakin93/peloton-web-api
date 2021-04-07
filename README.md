@@ -15,7 +15,7 @@ This app was initially created during the Pelothon challenge of 2020, in order t
 
 # Building
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It also uses [CORS-Anywhere by HerokuAPP}(https://cors-anywhere.herokuapp.com)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It also uses [CORS-Anywhere by HerokuAPP](https://cors-anywhere.herokuapp.com)
 
 To build locally, ensure you have:
 - node

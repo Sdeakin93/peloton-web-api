@@ -62,7 +62,7 @@ class App extends Component {
  return (
   <div className="App">
     <div className="logo">
-      <img src={pelotonlogo} height= "50%" width="50%" alt="lonpm go" />
+      <img src={pelotonlogo} height= "50%" width="50%" alt="Peloton logo" />
     </div>
     <form onSubmit={this.fetchData} >
       <label htmlFor="username">
