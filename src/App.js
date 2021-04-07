@@ -11,6 +11,7 @@ class App extends Component {
       tags: {},
       location: '',
       workouts: '',
+      workoutcount: {},
       imageURL: {},
       value: '',
       error: false
@@ -40,6 +41,7 @@ class App extends Component {
         location: response.data.location,
         workouts: response.data.total_non_pedaling_metric_workouts,
         imageURL: response.data.image_url,
+        workoutcounts: response.data.workout_counts,
         error: false
       });
     })
@@ -60,11 +62,11 @@ class App extends Component {
     <div className="logo">
       <img src={pelotonlogo} height= "50%" width="50%" alt="lonpm go" />
     </div>
-    <form onSubmit={this.fetchData}>
+    <form onSubmit={this.fetchData} >
       <label htmlFor="username">
-        Username 
+        Write username 
       </label>
-      <input id="username" value={this.state.value} type="text" onChange={this.handleChange}/>
+      <input id="username" value={this.state.value} type="text" onChange={this.handleChange} className="username-form"/>
       <button type="submit" className="fetch-button"> Submit </button>
     </form>
     {this.state.username 
@@ -75,7 +77,7 @@ class App extends Component {
         <p>Location: {this.state.location}</p> 
         <p>Total workouts: {this.state.workouts}</p>
         {this.state.tags && 
-        <p>Pelothon Team: {this.state.tags['primary_name']}</p>
+        <p>Team: {this.state.tags['primary_name']}</p>
          }
       </div>
     : <p>No account found</p>} 
