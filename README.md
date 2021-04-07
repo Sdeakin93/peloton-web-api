@@ -15,7 +15,7 @@ This app was initially created during the Pelothon challenge of 2020, in order t
 
 # Building
 
-This tool was built with create-react-app as it's a single page react component. 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 To build locally, ensure you have:
 - node
