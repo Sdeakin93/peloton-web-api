@@ -11,7 +11,7 @@ This tool currently displays:
 
 # Why?
 
-This app was initially created during the Pelothon challenge of 2020, in order to display my team choice!
+This app was initially created during the Pelothon challenge of 2020, in order to display my team choice. Since this challenge has finished, it is a quick way to search through usernames outside of the app.
 
 # Building
 
@@ -26,6 +26,7 @@ Then cd into the folder, and run npm start! It will build at a localhost and you
 # Next Steps
 
 - Provide more data from the public API:
-    - Update specific workout amounts
-    - Provide streaks 
+    - Update specific workout amounts (including icon, count, and a reference to when a user will hit century club)
 - Optimise for mobile devices
+
+- This code can be cleaned up, and I have plans to rewrite it using React Hooks rather than setting all of the individual states.
