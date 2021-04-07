@@ -13,6 +13,7 @@ class App extends Component {
       workouts: '',
       workoutcount: {},
       imageURL: {},
+      streaks: {},
       value: '',
       error: false
     };
@@ -21,7 +22,6 @@ class App extends Component {
   }
 
   handleChange(event) {
-    console.log(event.target.value)
     this.setState({
       value: event.target.value
     }) 
@@ -42,6 +42,7 @@ class App extends Component {
         workouts: response.data.total_non_pedaling_metric_workouts,
         imageURL: response.data.image_url,
         workoutcounts: response.data.workout_counts,
+        streaks: response.data.streaks,
         error: false
       });
     })
@@ -55,6 +56,7 @@ class App extends Component {
   render(){
 
     const { imageURL } = this.state;
+    const Peloton = this.state;
   
 
  return (
@@ -69,16 +71,20 @@ class App extends Component {
       <input id="username" value={this.state.value} type="text" onChange={this.handleChange} className="username-form"/>
       <button type="submit" className="fetch-button"> Submit </button>
     </form>
-    {this.state.username 
+    {Peloton.username 
     ?  <div>
         <img src={imageURL} height="25%" width="25%" alt="your face"/>
-        <h1>{this.state.username}'s Peloton info</h1>
-        <p>Username: {this.state.username}</p> 
-        <p>Location: {this.state.location}</p> 
-        <p>Total workouts: {this.state.workouts}</p>
-        {this.state.tags && 
-        <p>Team: {this.state.tags['primary_name']}</p>
+        <h1>{Peloton.username}'s Peloton info</h1>
+        <p>Username: {Peloton.username}</p> 
+        <p>Location: {Peloton.location}</p> 
+        <p>Total workouts: {Peloton.workouts}</p>
+        <p>Current weekly streak: {Peloton.streaks['current_weekly']}</p>
+        <p>Best weekly streak: {Peloton.streaks['best_weekly']}</p>
+        {Peloton.tags && 
+        <p>Tags: {Peloton.tags['primary_name']}</p>
          }
+         {/* <p>Workout counts</p>
+         This is the section where I will add in all of the arrays from workout count, I will pull through the icon, the count, and the name from the array.*/}
       </div>
     : <p>No account found</p>} 
     {this.state.error && <p>There has been an error</p>}
