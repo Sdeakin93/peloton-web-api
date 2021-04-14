@@ -12,7 +12,7 @@ As you will see with the OldApp.js component, this initially was written as a St
 
 # How is it built?
 - It is built initally with Create React App.
-- In order to access the Peloton APi it uses a Cors-anywhere server hosted on Heroku [https://github.com/Isoaxe/cors-server]
+- In order to access the Peloton APi it uses a Cors-anywhere server hosted on (Heroku) [https://github.com/Isoaxe/cors-server]
 - It has been deployed via Netlify
 
 # Why?
