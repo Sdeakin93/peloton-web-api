@@ -55,18 +55,14 @@ function App() {
           value={username}
           onChange={(event) => setUsername(event.target.value)}
         />
-
-        <button type="button" onClick={() => setSearch(username)}>
-          Submit
-        </button>
-
-        <button type="button" onClick={() => 
-          clearAll()
-        }
-          >
-          Clear
-        </button>
-        {/* <button onClick={() => setShowText(!showText)}>Show Results</button> */}
+        <div className="buttons">
+            <button type="buttons__select" onClick={() => setSearch(username)}>
+            Submit
+          </button>
+          <button type="buttons__select" onClick={() => clearAll()}>
+            Clear
+          </button>
+        </div>
         {showText && <div className="results">
             <h1>{data?.username}</h1>
             <img src={data?.image_url} height="25%" width="25%" alt="your face" />
