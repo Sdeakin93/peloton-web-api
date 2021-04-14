@@ -32,7 +32,10 @@ function App() {
     fetchData();
   }, [search]);
 
-  const clearVal = () => setUsername("");
+  function clearAll() {
+    setShowText(false);
+    setUsername('');
+  }
 
   // if (!data.username) {
   //   return <h2>API Error</h2>;
@@ -57,7 +60,10 @@ function App() {
           Submit
         </button>
 
-        <button type="button" onClick={() => clearVal()}>
+        <button type="button" onClick={() => 
+          clearAll()
+        }
+          >
           Clear
         </button>
         {/* <button onClick={() => setShowText(!showText)}>Show Results</button> */}
