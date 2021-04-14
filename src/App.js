@@ -12,7 +12,7 @@ const me = "sjarquedeakin";
 export const UsernameContext = React.createContext();
 
 function App() {
-  const [data, setData] = useState(me);
+  const [data, setData] = useState(defaultData);
   const [username, setUsername] = useState(me);
   const [search, setSearch] = useState(me);
   // const [showText, setShowText] = useState(false);
