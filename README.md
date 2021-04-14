@@ -9,6 +9,7 @@ As you will see with the OldApp.js component, this initially was written as a St
 # How is it built?
 - It is built initally with Create React App.
 - In order to access the Peloton APi it uses a Cors-anywhere server hosted on Heroku [https://github.com/Isoaxe/cors-server]
+- It has been deployed via Netlify
 
 # Why?
 This was both an experiment in updating an app with React Hooks and upgrading an app to improve it.
@@ -22,3 +23,5 @@ This was both an experiment in updating an app with React Hooks and upgrading an
 Peloton publically does not allow for further information without authentication, so it would be cool to explore this further.
 
 # Demo
+
+Can be seen on [here](https://infallible-raman-c574a0.netlify.app)
