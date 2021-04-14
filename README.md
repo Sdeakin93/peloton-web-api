@@ -8,7 +8,7 @@ As you will see with the OldApp.js component, this initially was written as a St
 
 # How is it built?
 - It is built initally with Create React App.
-- In order to access the Peloton APi it uses CORS Anywhere eroku
+- In order to access the Peloton APi it uses a Cors-anywhere server hosted on Heroku [https://github.com/Isoaxe/cors-server]
 
 # Why?
 This was both an experiment in updating an app with React Hooks and upgrading an app to improve it.
@@ -16,7 +16,7 @@ This was both an experiment in updating an app with React Hooks and upgrading an
 # Next Steps
 - I plan on including useReducer as a better dev experience. 
 - I am aware the code/css needs cleaning up.
-- This is not a stable API, so I will be working to access the data in a better way.
+- ~~This is not a stable API, so I will be working to access the data in a better way.~~ This was remedied by creating my own cors-server using the above.
 
 Peloton publically does not allow for further information without authentication, so it would be cool to explore this further.
 
