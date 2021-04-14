@@ -16,6 +16,7 @@ This was both an experiment in updating an app with React Hooks and upgrading an
 # Next Steps
 - I plan on including useReducer as a better dev experience. 
 - I am aware the code/css needs cleaning up.
+- I need to add in an error case if no user is found
 - ~~This is not a stable API, so I will be working to access the data in a better way.~~ This was remedied by creating my own cors-server using the above.
 
 Peloton publically does not allow for further information without authentication, so it would be cool to explore this further.

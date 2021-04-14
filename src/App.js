@@ -3,19 +3,20 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { defaultData } from "./backup";
 import "react-toggle/style.css";
+import pelotonlogo from "./images/peloton-logo.png";
 
 // Components
 import { WorkoutList } from "./workouts";
 
-const me = "sjarquedeakin";
+// const me = "sjarquedeakin";
 
 export const UsernameContext = React.createContext();
 
 function App() {
-  const [data, setData] = useState(me);
-  const [username, setUsername] = useState(me);
-  const [search, setSearch] = useState(me);
-  // const [showText, setShowText] = useState(false);
+  const [data, setData] = useState('');
+  const [username, setUsername] = useState('');
+  const [search, setSearch] = useState('');
+  const [showText, setShowText] = useState(false);
 
   
   useEffect(() => {
@@ -26,25 +27,24 @@ function App() {
       );
       setData(result.data);
       console.log(result);
+      setShowText(true);
     };
     fetchData();
   }, [search]);
 
   const clearVal = () => setUsername("");
 
-  if (!data.username) {
-    return <h2>API Error</h2>;
-  } 
+  // if (!data.username) {
+  //   return <h2>API Error</h2>;
+  // } 
 
   return (
     <div className="App">
-      <UsernameContext.Provider value={me}>
+      {/* <UsernameContext.Provider value={me}> */}
         <h1>Peloton API tool</h1>
-        
-      {/* <DarkToggle /> */}
-        {/* <div className="logo">
+        <div className="logo">
         <img src={pelotonlogo} height="50%" width="50%" alt="Peloton logo" />
-      </div> */}
+      </div>
         <input
           className="username-form"
           type="text"
@@ -61,7 +61,7 @@ function App() {
           Clear
         </button>
         {/* <button onClick={() => setShowText(!showText)}>Show Results</button> */}
-        {/* {showText && <div> */}
+        {showText && <div className="results">
             <h1>{data?.username}</h1>
             <img src={data?.image_url} height="25%" width="25%" alt="your face" />
             <p>Location: {data?.location}</p>
@@ -70,8 +70,8 @@ function App() {
             <p>Total following: {data?.total_following}</p>
             <p>Team Name: {data?.tags_info?.primary_name}</p>
             <WorkoutList workouts={data?.workout_counts} />
-        {/* </div>} */}
-      </UsernameContext.Provider>
+        </div>}
+      {/* </UsernameContext.Provider> */}
     </div>
   );
 }
