@@ -1,6 +1,10 @@
 # peloton-web-api
 A web app built to pull some information from the public Peloton API
 
+# Demo
+Can be seen on [here](https://infallible-raman-c574a0.netlify.app)
+If you do not have an account, feel free to try my username: sjarquedeakin or any of the Peloton instructors!
+
 # What is it?
 A react app built initially for use during Pelothon 2020. This was used to add a username in and pull some data from the Peloton public API.
 
@@ -22,6 +26,3 @@ This was both an experiment in updating an app with React Hooks and upgrading an
 
 Peloton publically does not allow for further information without authentication, so it would be cool to explore this further.
 
-# Demo
-
-Can be seen on [here](https://infallible-raman-c574a0.netlify.app)
