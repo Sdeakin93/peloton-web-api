@@ -12,7 +12,7 @@ const me = "sjarquedeakin";
 export const UsernameContext = React.createContext();
 
 function App() {
-  const [data, setData] = useState(defaultData);
+  const [data, setData] = useState(me);
   const [username, setUsername] = useState(me);
   const [search, setSearch] = useState(me);
   // const [showText, setShowText] = useState(false);
@@ -22,7 +22,7 @@ function App() {
     const fetchData = async () => {
       
       const result = await axios(
-        `http://cors-anywhere.herokuapp.com/https://api.onepeloton.com/api/user/${username}`
+        `https://rocky-refuge-28597.herokuapp.com/https://api.onepeloton.com/api/user/${username}`
       );
       setData(result.data);
       console.log(result);
