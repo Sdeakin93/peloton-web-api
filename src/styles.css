@@ -1,15 +1,35 @@
-* {
-  box-sizing: border-box;
-  background: #181a1d;
-  color: white;
+html {
+  /* our light-mode / default theme variable values */
+  --primaryTextColor: black;
+  --primaryBackgroundColor: white;
+  --headingTextColor: #14ad8c;
+  --secondaryBackgroundColor: #dcf7f4;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    /* here's where we change the variable values for dark mode */
+    --primaryTextColor: white;
+    --primaryBackgroundColor: black;
+    --headingTextColor: #14ad8c;
+    --secondaryBackgroundColor: #130d21;  
+  }
+}
+
+body {
+  background: var(--secondaryBackgroundColor);
+  color: var(--primaryTextColor);
+
 }
 img {
   border-radius: 150px;
+  max-width: 150px;
 }
 .App {
   font-family: "Roboto", sans-serif;
   text-align: center;
   padding-top: 80px;
+  background: var(--primaryBackgroundColor);
 }
 .username-form {
   min-width: 150px;
@@ -52,16 +72,18 @@ img {
   flex-wrap: wrap;
 }
 
+@media (max-width:632px) {
+  .workout {
+    display: block;
+  }
+}
+
 .workout {
-  background: #fff;
   position: relative;
   border-radius: 5px;
-  padding: 20px;
   margin: 10px;
-  width: 47%;
-  color: #333;
-  flex-basis: width;
-  background-color: rgb(165, 230, 230);
+  width: 20%;
+  display: inline-block;
 }
 
 .workout h3 {
@@ -74,6 +96,11 @@ img {
   margin-top: 5px;
   margin-bottom: 30px;
   font-size: 1.5rem;
+}
+
+.workout img {
+  max-width: 25px;
+  max-height: 25px;
 }
 
 .details {
