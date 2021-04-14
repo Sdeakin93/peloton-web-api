@@ -8,7 +8,6 @@ import pelotonlogo from "./images/peloton-logo.png";
 // Components
 import { WorkoutList } from "./workouts";
 
-// const me = "sjarquedeakin";
 
 export const UsernameContext = React.createContext();
 
@@ -26,7 +25,6 @@ function App() {
         `https://rocky-refuge-28597.herokuapp.com/https://api.onepeloton.com/api/user/${username}`
       );
       setData(result.data);
-      console.log(result);
       setShowText(true);
     };
     fetchData();
@@ -37,9 +35,7 @@ function App() {
     setUsername('');
   }
 
-  // if (!data.username) {
-  //   return <h2>API Error</h2>;
-  // } 
+
 
   return (
     <div className="App">
@@ -47,6 +43,7 @@ function App() {
         <h1>Peloton API tool</h1>
         <div className="logo">
         <img src={pelotonlogo} height="50%" width="50%" alt="Peloton logo" />
+
       </div>
         <input
           className="username-form"
@@ -56,10 +53,10 @@ function App() {
           onChange={(event) => setUsername(event.target.value)}
         />
         <div className="buttons">
-            <button type="buttons__select" onClick={() => setSearch(username)}>
+            <button type="submit" onClick={() => setSearch(username)}>
             Submit
           </button>
-          <button type="buttons__select" onClick={() => clearAll()}>
+          <button type="submit" onClick={() => clearAll()}>
             Clear
           </button>
         </div>
