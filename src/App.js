@@ -1,7 +1,6 @@
 import "./styles.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useReducer } from "react";
 import axios from "axios";
-import { defaultData } from "./backup";
 import "react-toggle/style.css";
 import pelotonlogo from "./images/peloton-logo.png";
 
@@ -11,31 +10,39 @@ import { WorkoutList } from "./workouts";
 
 export const UsernameContext = React.createContext();
 
-function App() {
-  const [data, setData] = useState('');
-  const [username, setUsername] = useState('');
-  const [search, setSearch] = useState('');
-  const [showText, setShowText] = useState(false);
+const initialState = { data: {} };
 
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      
-      const result = await axios(
-        `https://rocky-refuge-28597.herokuapp.com/https://api.onepeloton.com/api/user/${username}`
-      );
-      setData(result.data);
-      setShowText(true);
-    };
-    fetchData();
-  }, [search]);
+function reducer(state, action) {
+  console.log(action);
+  switch (action.type) {
+    case 'storeData' : 
+    return {data: action.data || {}} 
+    case 'clearData' : 
+    return {data: {}} 
+    default:
+      return state;
+  }
+}
+
+
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const [username, setUsername] = useState('');
+ 
+  const fetchData = async () => { 
+    const result = await axios(
+      `https://rocky-refuge-28597.herokuapp.com/https://api.onepeloton.com/api/user/${username}`
+    );
+    dispatch({type: 'storeData', data: result.data}) 
+  };
 
   function clearAll() {
-    setShowText(false);
     setUsername('');
+    dispatch({type: 'clearData'})
   }
 
-
+  const {data} = state; 
 
   return (
     <div className="App">
@@ -46,21 +53,21 @@ function App() {
 
       </div>
         <input
-          className="username-form"
+          className="username-form" 
           type="text"
           placeholder="enter username"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
         />
         <div className="buttons">
-            <button type="submit" onClick={() => setSearch(username)}>
+            <button disabled={!username} type="submit" onClick={() => fetchData()}>
             Submit
           </button>
           <button type="submit" onClick={() => clearAll()}>
             Clear
           </button>
         </div>
-        {showText && <div className="results">
+        {data.username && <div className="results">
             <h1>{data?.username}</h1>
             <img src={data?.image_url} height="25%" width="25%" alt="your face" />
             <p>Location: {data?.location}</p>
