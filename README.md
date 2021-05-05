@@ -1,9 +1,6 @@
 # peloton-web-api
 
 A web app built to pull some information from the public Peloton API.
-![Screenshot 2021-05-05 at 01 08 53](https://user-images.githubusercontent.com/45657911/117084376-fa121a00-ad3e-11eb-8c84-ed42f523bf07.png)
-![Screenshot 2021-05-05 at 01 08 59](https://user-images.githubusercontent.com/45657911/117084381-fda5a100-ad3e-11eb-8af8-3f0139eeef47.png)
-
 
 # Demo
 
@@ -37,3 +34,9 @@ Peloton publically does not allow for further information without authentication
 - I am _still_ aware the code/css needs cleaning up.
 - I need to add in an error case if no user is found - as there currently is no update
 - Peloton has since removed the icon/location from their public API (I presume for privacy) and I found that many users did not use the tags as much as I did, so have removed this (it may get added back in at points)
+
+# Images can be seen here:
+
+![Screenshot 2021-05-05 at 01 08 53](https://user-images.githubusercontent.com/45657911/117084376-fa121a00-ad3e-11eb-8c84-ed42f523bf07.png)
+![Screenshot 2021-05-05 at 01 08 59](https://user-images.githubusercontent.com/45657911/117084381-fda5a100-ad3e-11eb-8af8-3f0139eeef47.png)
+
