@@ -1,7 +1,7 @@
 {
-  "name": "react",
-  "version": "1.0.0",
-  "description": "React example starter project",
+  "name": "peloton-api-project",
+  "version": "1.0.2",
+  "description": "Example Peloton API Project",
   "keywords": [
     "react",
     "starter"

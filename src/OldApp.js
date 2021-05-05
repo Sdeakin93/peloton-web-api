@@ -15,7 +15,7 @@ class App extends Component {
       imageURL: {},
       streaks: {},
       value: "",
-      error: false,
+      error: false
     };
     this.fetchData = this.fetchData.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -23,7 +23,7 @@ class App extends Component {
 
   handleChange(event) {
     this.setState({
-      value: event.target.value,
+      value: event.target.value
     });
   }
 
@@ -45,12 +45,12 @@ class App extends Component {
           imageURL: response.data.image_url,
           workoutcounts: response.data.workout_counts,
           streaks: response.data.streaks,
-          error: false,
+          error: false
         });
       })
       .catch((error) => {
         this.setState({
-          error: true,
+          error: true
         });
       });
   }

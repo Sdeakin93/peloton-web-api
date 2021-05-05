@@ -1,10 +1,10 @@
-
 html {
   /* our light-mode / default theme variable values */
   --primaryTextColor: black;
   --primaryBackgroundColor: white;
-  --headingTextColor: #white;
-  --secondaryBackgroundColor: #black;
+  --headingTextColor: white;
+  --secondaryBackgroundColor: white;
+  --logoInversion: invert(100%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,29 +12,29 @@ html {
     /* here's where we change the variable values for dark mode */
     --primaryTextColor: white;
     --primaryBackgroundColor: black;
-    --headingTextColor: #white;
-    --secondaryBackgroundColor: #black;  
+    --headingTextColor: white;
+    --secondaryBackgroundColor: black;
+    --logoInversion: invert(0);
   }
 }
 
 body {
   background: var(--secondaryBackgroundColor);
   color: var(--primaryTextColor);
-
 }
 img {
   max-width: 150px;
+  filter: var(--logoInversion);
 }
 .App {
   font-family: "Roboto", sans-serif;
   text-align: center;
   padding-top: 80px;
   background: var(--primaryBackgroundColor);
-
 }
 .buttons {
-    display: block;
-    padding: 10px;
+  display: block;
+  padding: 10px;
 }
 
 .buttons button {
@@ -50,7 +50,20 @@ img {
   margin: 4px 2px;
 }
 
-.username-form {
+.submit button {
+  padding: 15px;
+  background-color: rgb(163, 8, 8);
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 16px;
+  border: none;
+  margin: 4px 2px;
+}
+
+input {
   min-width: 150px;
   margin: 30px;
   padding: 15px;
@@ -59,6 +72,7 @@ img {
   cursor: pointer;
   color: rgb(163, 8, 8);
   border: none;
+  box-shadow: 0px 1px 0px rgb(163, 8, 8);
   background-color: rgb(255, 255, 255);
   transition: all 0.5s;
 }
@@ -90,7 +104,7 @@ img {
   flex-wrap: wrap;
 }
 
-@media (max-width:632px) {
+@media (max-width: 632px) {
   .workout {
     display: block;
   }
