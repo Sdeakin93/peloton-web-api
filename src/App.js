@@ -15,10 +15,10 @@ function App() {
         <div class="relative px-4 py-10 bg-white dark:bg-gray-800 shadow-lg sm:rounded-3xl sm:p-20">
           <div class="py-8 text-gray-900 text-lg sm:leading-1 dark:text-white">
             <PelotonDataProvider>
-              <img class="filter invert" src={pelotonlogo} alt="Peloton logo" />
               <h1 class="font-bold text-5xl py-6 text-center dark:text-white">
                 Peloton API tool
               </h1>
+              <img class="filter invert" src={pelotonlogo} alt="Peloton logo" />
               <p class="flex justify-center">Built by Sarah Deakin</p>
               <p class="flex justify-center">
                 <a
