@@ -28,8 +28,8 @@ export function reducer(state, action) {
   switch (action.type) {
     case "storeData":
       return { ...state, data: action.data || {} };
-    case "falseData":
-      return { ...state, data: action.data || {} };
+    // case "falseData":
+    //   return { ...state, data: action.data || {} };
     case "clearData":
       return { ...state, data: {} };
     case "setTextFilter":

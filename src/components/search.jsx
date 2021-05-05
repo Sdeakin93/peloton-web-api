@@ -21,7 +21,6 @@ export const Search = () => {
       `https://rocky-refuge-28597.herokuapp.com/https://api.onepeloton.com/api/user/${username}`
     );
     dispatch({ type: "storeData", data: result.data });
-    console.log(result);
   };
 
   // Note the need to add a section in if a 404 is returned
@@ -33,18 +32,29 @@ export const Search = () => {
 
   return (
     <>
-      <input
-        className="username-form"
-        type="text"
-        placeholder="enter username"
-        value={username}
-        onChange={handleEvent}
-      />
-      <div className="buttons">
-        <button disabled={!username} type="submit" onClick={() => fetchData()}>
+      <div class="flex items-center">
+        <input
+          class="bg-gray-200 focus:bg-white text-gray-900  flex-1 text-center rounded-md px-4 py-2 m-2"
+          type="text"
+          placeholder="Enter username"
+          value={username}
+          onChange={handleEvent}
+        />
+      </div>
+      <div class="flex items-center">
+        <button
+          class="flex-1 bg-red-500 hover:bg-red-700 rounded-md px-4 py-2 m-2"
+          disabled={!username}
+          type="submit"
+          onClick={() => fetchData()}
+        >
           Submit
         </button>
-        <button type="submit" onClick={() => clearAll()}>
+        <button
+          class="flex-1 bg-red-500 hover:bg-red-700 rounded-md px-4 py-2 m-2"
+          type="submit"
+          onClick={() => clearAll()}
+        >
           Clear
         </button>
       </div>

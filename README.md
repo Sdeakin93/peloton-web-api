@@ -39,4 +39,3 @@ Peloton publically does not allow for further information without authentication
 
 ![Screenshot 2021-05-05 at 01 08 53](https://user-images.githubusercontent.com/45657911/117084376-fa121a00-ad3e-11eb-8c84-ed42f523bf07.png)
 ![Screenshot 2021-05-05 at 01 08 59](https://user-images.githubusercontent.com/45657911/117084381-fda5a100-ad3e-11eb-8af8-3f0139eeef47.png)
-

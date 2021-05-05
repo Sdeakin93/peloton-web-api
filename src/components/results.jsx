@@ -15,7 +15,7 @@ export const Results = () => {
   const shouldRenderResults = data.username;
 
   return (
-    <div className="results">
+    <div class="block text-center">
       {shouldRenderResults ? (
         <>
           <h1>{data?.username}</h1>
