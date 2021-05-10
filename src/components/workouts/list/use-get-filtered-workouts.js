@@ -1,5 +1,6 @@
 import { useGetWorkouts } from "./use-get-workouts";
 import { useFilters } from "./use-filters";
+import _ from "lodash";
 
 // const filteredWorkouts = useGetFilteredWorkouts();
 export const useGetFilteredWorkouts = () => {
@@ -17,7 +18,9 @@ export const useGetFilteredWorkouts = () => {
   }
 
   if (zeroFilter) {
-    workouts.filter((w) => w.count > 0);
+    workouts = _.remove(workouts, function (w) {
+      return w.count > 1;
+    });
   }
   // @TODO Other Filters
 

@@ -18,9 +18,9 @@ const setCountFilter = (BOOL) => ({
   filter: BOOL,
 });
 
-const setZeroFilter = (BOOL) => ({
+const setZeroFilter = (z) => ({
   type: "setZeroFilter",
-  filter: BOOL,
+  filter: z,
 });
 
 // Selectors
