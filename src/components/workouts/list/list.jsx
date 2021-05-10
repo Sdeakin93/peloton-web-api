@@ -10,7 +10,7 @@ export const WorkoutList = () => {
   const shouldRenderWorkouts = filteredWorkouts.length > 0;
 
   return (
-    <div class="block text-center">
+    <div className="block text-center">
       <ListFilters />
       {shouldRenderWorkouts ? (
         filteredWorkouts.map((workout) => (

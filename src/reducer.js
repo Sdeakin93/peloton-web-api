@@ -37,7 +37,7 @@ export function reducer(state, action) {
     case "setCountFilter":
       return {
         ...state,
-        filters: { ...state.filters, count: action.filter || "" },
+        filters: { ...state.filters, count: action.filter },
       };
     default:
       return state;

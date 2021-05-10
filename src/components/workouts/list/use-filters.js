@@ -3,7 +3,7 @@ import { usePelotonData } from "../../../context";
 // Zero Filter: (toggle hiding workouts with 0 count)
 // Text Filter: "yog" ==> Yoga ✅
 // Sort
-//// Alphabetical
+//// Alphabetical - toggle, two different modes between these two
 //// Most Performed
 /////////////////////////////////////////////////////
 
@@ -20,18 +20,19 @@ const setCountFilter = (BOOL) => ({
 
 // Selectors
 const getTextFilter = (state) => state?.filters?.text ?? "";
-const getCountFilter = (state) => state?.filters?.bool;
+const getCountFilter = (state) => state?.filters?.count;
 
 // const { textFilter, setTextFilter } = useFilters();
 // const { countFilter, setCountFilter } = useFilters();
 export const useFilters = () => {
   const { state, dispatch } = usePelotonData();
+  const countFilter = getCountFilter(state);
+  const textFilter = getTextFilter(state);
 
   return {
-    textFilter: getTextFilter(state),
+    textFilter,
     setTextFilter: (e) => dispatch(setTextFilter(e)),
-    countFilter: getCountFilter(state),
-    setCountFilter: (BOOL) => dispatch(setCountFilter(BOOL)),
-    // setCountFilter: (BOOL) => dispatch(setCountFilter(BOOL)),
+    countFilter,
+    toggleCountFilter: () => dispatch(setCountFilter(!countFilter)),
   };
 };
