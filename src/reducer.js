@@ -39,6 +39,11 @@ export function reducer(state, action) {
         ...state,
         filters: { ...state.filters, count: action.filter },
       };
+    case "setZeroFilter":
+      return {
+        ...state,
+        filters: { ...state.filters, count: action.filter },
+      };
     default:
       return state;
   }

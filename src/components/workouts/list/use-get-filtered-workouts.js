@@ -4,7 +4,7 @@ import { useFilters } from "./use-filters";
 // const filteredWorkouts = useGetFilteredWorkouts();
 export const useGetFilteredWorkouts = () => {
   let workouts = useGetWorkouts();
-  const { textFilter, countFilter } = useFilters();
+  const { textFilter, countFilter, zeroFilter } = useFilters();
 
   // Text Filter
   workouts = workouts.filter((w) => w.name.toLowerCase().includes(textFilter));
@@ -16,6 +16,9 @@ export const useGetFilteredWorkouts = () => {
     workouts.sort((a, b) => b.count - a.count);
   }
 
+  if (zeroFilter) {
+    workouts.filter((w) => w.count > 0);
+  }
   // @TODO Other Filters
 
   return workouts;

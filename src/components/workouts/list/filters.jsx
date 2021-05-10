@@ -12,6 +12,7 @@ export const ListFilters = () => {
     setTextFilter,
     countFilter,
     toggleCountFilter,
+    toggleZeroFilter,
   } = useFilters();
   const { state } = usePelotonData();
   const { data } = state;
@@ -36,6 +37,15 @@ export const ListFilters = () => {
               onClick={toggleCountFilter}
             >
               Sort by most workouts
+            </button>
+            {/* sets a boolean in state to true or false */}
+          </div>
+          <div className="submit">
+            <button
+              className="bg-gray-200 focus:bg-white text-gray-900 rounded-md px-4 py-2 m-2"
+              onClick={toggleZeroFilter}
+            >
+              Remove workouts with no performance
             </button>
             {/* sets a boolean in state to true or false */}
           </div>
