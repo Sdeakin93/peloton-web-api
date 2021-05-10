@@ -18,12 +18,14 @@ function App() {
               <h1 className="font-bold text-5xl py-6 text-center dark:text-white">
                 Peloton API tool
               </h1>
-              <img
+              {/* <img
                 className="filter invert"
                 src={pelotonlogo}
                 alt="Peloton logo"
-              />
-              <p className="flex justify-center">Built by Sarah Deakin</p>
+              /> */}
+              <p className="flex justify-center">
+                Built by Sarah Jarque-Deakin
+              </p>
               <p className="flex justify-center">
                 <a
                   href="https://github.com/Sdeakin93/peloton-web-api"
